@@ -15,6 +15,7 @@ WORKDIR /var/www/html/
 COPY . .
 COPY --from=node-build /app/public/build /var/www/html/public/build
 COPY --from=composer-build /app/vendor /var/www/html/vendor
+RUN apt-get update && apt-get install -y libpq-dev
 RUN docker-php-ext-install pdo_pgsql
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
