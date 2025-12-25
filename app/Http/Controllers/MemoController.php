@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Carbon;
 use App\Http\Requests\MemoRequest;
 use Illuminate\Http\Request;
 use App\Models\Memo;
@@ -10,7 +11,7 @@ class MemoController extends Controller
 {
     function create(MemoRequest $request){
         $memo = new Memo();
-        $memo->deadline = strtotime($request->deadline);
+        $memo->deadline = Carbon::parse($request->deadline);
         $memo->description = $request->description;
         $memo->isFinished = false;
         $memo->isDeleted = false;

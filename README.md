@@ -3,6 +3,7 @@
 ## 概要
 Memeeはweb上で動作するTodoリストアプリケーションです。
 動作確認用ページ(Render.com): [https://memee-nunp.onrender.com](https://memee-nunp.onrender.com)
+Render.comの無料枠を使用しているため、起動に数分かかる可能性があります。
 
 ## 使用技術
 - 使用言語: PHP 8.4.1, JavaScript
@@ -10,6 +11,7 @@ Memeeはweb上で動作するTodoリストアプリケーションです。
 - ビルドツール: vite
 - フロントエンド: Blade, tailwindcss v4, Alpine.js, Axios
 - データベース: SQLite 3.51
+
 ## 動作環境
 
 
