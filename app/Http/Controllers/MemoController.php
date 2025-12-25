@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MemoRequest;
 use Illuminate\Http\Request;
 use App\Models\Memo;
 
 class MemoController extends Controller
 {
-    function create(Request $request){
+    function create(MemoRequest $request){
         $memo = new Memo();
         $memo->deadline = strtotime($request->deadline);
         $memo->description = $request->description;
         $memo->isFinished = false;
         $memo->isDeleted = false;
-        $memo->save();
-        return response()->json($request);
+        $result = $memo->save();
+        return response()->json(['request'=>$result]);
 
     }
 
@@ -46,16 +47,20 @@ class MemoController extends Controller
 
     function delete(Request $request){
         $data = Memo::find($request->id);
-        $data->isDeleted = true;
-        $data->save();
-        //$data->delete();
-        return response()->json(['ok'=>'ok']);
+        $result = false;
+        if($data->isDeleted){
+            $result = $data->delete();
+        }else{
+            $data->isDeleted = true;
+            $result = $data->save();
+        }
+        return response()->json(['result'=>$result]);
     }
 
     function update(Request $request){
         $data = Memo::find($request->id);
         $data->isFinished = $request->newIsFinished;
-        $data->save();
-        return response()->json(['ok'=>'ok']);
+        $result = $data->save();
+        return response()->json(['result'=>$result]);
     }
 }
