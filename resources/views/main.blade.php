@@ -25,7 +25,7 @@
 
                 <div class=" w-full flex flex-col p-5 overflow-auto">
                     <template class="" x-for="data in datas" :key="data.id">
-                        <div class="w-full min-h-12 h-auto border p-2 flex flex-row  shrink-0 @container " :class="data.isFinished ? 'bg-gray-400' : 'bg-gray-200'" x-data="{time:(new Date(data.deadline)),remainDate:(Math.round(10*( ((new Date(data.deadline)).getTime()-60*60*9) - Date.now()) / (1000*60*60*24)))/10}">
+                        <div class="w-full min-h-12 h-auto border p-2 flex flex-row  shrink-0 @container " :class="data.isFinished ? 'bg-gray-400' : 'bg-gray-200'" x-data="{time:(new Date(data.deadline)),remainDate:(Math.round(10*( (new Date(data.deadline)).getTime() - (Date.now()+60*60*9)) / (1000*60*60*24)))/10}">
 
                             <div class="flex-3 sm:flex-4  flex items-center">
                                 <p class="text-xl " x-text="data.description"></p>
