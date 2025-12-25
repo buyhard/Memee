@@ -4,10 +4,11 @@
 Memeeはweb上で動作するTodoリストアプリケーションです。
 
 ## 使用技術
-- 使用言語: PHP,JavaScript
-- バックエンドフレームワーク: Laravel 12.42.0
-- フロントエンド: Blade,tailwindcss 4.1.18
-- データベース: SQLite
+- 使用言語: PHP 8.4.1, JavaScript
+- バックエンドフレームワーク: Laravel 12.x
+- ビルドツール: vite
+- フロントエンド: Blade, tailwindcss v4, Alpine.js, Axios
+- データベース: SQLite 3.51
 
 
 
