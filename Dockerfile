@@ -15,6 +15,7 @@ WORKDIR /var/www/html/
 COPY . .
 COPY --from=node-build /app/public/build /var/www/html/public/build
 COPY --from=composer-build /app/vendor /var/www/html/vendor
+RUN docker-php-ext-install pdo_pqsql
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
