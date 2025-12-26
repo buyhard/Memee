@@ -21,7 +21,7 @@ Macbook M2, macOS 26.1
 
 
 iPhone12 pro
-- Chrome 
+- Chrome 143.0.7499.151
 
 ## 機能
 
