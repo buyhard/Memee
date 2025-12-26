@@ -91,7 +91,7 @@
                     <p class="whitespace-pre-line" x-text="createMessage"></p>
                 </div>
             </div>
-            <div class="fixed w-20  right-10 bottom-10">
+            <div class="fixed w-20  right-10 bottom-10 shadow-xl">
                 <svg @click="createShow = true;" x-show="!createShow" class="sm:hidden" xmlns="http://www.w3.org/2000/svg" style="max-width:200%;max-height:64px;" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="84px" viewBox="-0.5 -0.5 42 32"><defs/><g><g data-cell-id="0"><g data-cell-id="1"><g data-cell-id="M-Gqk-PIzZ6omj-RPAR_-3"><g><rect x="0" y="0" width="40" height="30" rx="4.5" ry="4.5" fill="#ffffff" stroke="#000000" pointer-events="all" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="M-Gqk-PIzZ6omj-RPAR_-4"><g><path d="M 20 20 L 20 10" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g><g data-cell-id="M-Gqk-PIzZ6omj-RPAR_-6"><g><path d="M 15 14.92 L 25 14.92" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/></g></g></g></g></g></svg>
             </div>
             <div class="fixed w-20  right-3 top-10">
