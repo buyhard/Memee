@@ -5,7 +5,7 @@
         @vite(['resources/css/app.css','resources/js/app.js'])
     </head>
     <body x-data="{datas:[],week:['日','月','火','水','木','金','土'],type:0,createShow:false,createMessage:''}" >
-        <div class="w-screen h-screen flex flex-row justify-center  " x-data="{getData(type){axios.get('/api/get?type='+this.type).then(function(response){console.log(response); datas = response.data;});}}" x-init="getData(type); flatpickr('#calendar',{inline:true,'locale':window.Japanese , defaultDate:'today'});">
+        <div class="w-screen h-screen flex flex-row justify-center  " x-data="{getData(type){axios.get('/api/get?type='+this.type).then(function(response){datas = response.data;});}}" x-init="getData(type); flatpickr('#calendar',{inline:true,'locale':window.Japanese , defaultDate:'today'});">
 
             <div class=" w-full flex-78 flex flex-col  ">
                 <div class="w-full flex flex-col p-2  sm:hidden " >
@@ -43,7 +43,7 @@
                                 <div class="flex-1 hidden sm:block"></div>
                             </div>
 
-                            <div class="flex-2 flex border-r justify-center items-center" x-data="console.log(time+ ' ' + data.deadline);">
+                            <div class="flex-2 flex border-r justify-center items-center">
                                 <p x-text="(time.getMonth()+1)+'月'+time.getDate()+'日'+week[time.getDay()]+'曜日'" class=""></p>
                             </div>
 
@@ -51,8 +51,8 @@
                                 <p x-text="(remainDate <= 0) ? Math.abs(remainDate)+'日経過':'あと'+remainDate+'日'" class=""></p>
                             </div>
                             <div class="flex-2 h-full flex flex-col justify-center ">
-                                <div class=" h-7 border bg-white shadow-2xl flex justify-center" @click="axios.post('/api/update',{'id':data.id,'newIsFinished':!data.isFinished}).then(function(response){console.log(response); getData(type);});" x-text="data.isFinished ? '完了取消し':'完了'"></div>
-                                <div class=" h-7 border bg-white shadow-2xl flex justify-center" @click="axios.post('/api/delete',{'id':data.id}).then(function(response){console.log(response); getData(type);});" x-text="data.isDeleted ? '完全削除' : '削除'"></div>
+                                <div class=" h-7 border bg-white shadow-2xl flex justify-center" @click="axios.post('/api/update',{'id':data.id,'newIsFinished':!data.isFinished}).then(function(response){ getData(type);});" x-text="data.isFinished ? '完了取消し':'完了'"></div>
+                                <div class=" h-7 border bg-white shadow-2xl flex justify-center" @click="axios.post('/api/delete',{'id':data.id}).then(function(response){getData(type);});" x-text="data.isDeleted ? '完全削除' : '削除'"></div>
                             </div>
 
                         </div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="w-full h-10 p-2 sm:border-t" ><p class="text-xl">新規作成</p></div>
                 <div class="w-full ">
-                    <form action="/api/create" method="POST" class="flex flex-col" @submit.prevent="createMessage=''; axios.post('/api/create',Object.fromEntries(new FormData($event.target))).then(function(response){console.log(response); getData(type); createMessage='正常に処理されました'}).catch(function(error){console.log(error);  if(typeof error.response == 'undefined'){createMessage = 'エラーが発生しました。';}else{  Object.values(error.response.data.errors).forEach((element)=>createMessage+= element+'\n');}  }) ;">
+                    <form action="/api/create" method="POST" class="flex flex-col" @submit.prevent="createMessage=''; axios.post('/api/create',Object.fromEntries(new FormData($event.target))).then(function(response){getData(type); createMessage='正常に処理されました'}).catch(function(error){if(typeof error.response == 'undefined'){createMessage = 'エラーが発生しました。';}else{  Object.values(error.response.data.errors).forEach((element)=>createMessage+= element+'\n');}  }) ;">
                         <p class="text-lg my-2">題名</p>
                         <input type="text" class=" border my-2" name="description">
                         <p class="text-lg my-2">締め切り</p>
