@@ -1,7 +1,7 @@
 # Memee
 
 ## 概要
-Memeeはweb上で動作するTodoリストアプリケーションです。 
+Memeeはweb上で動作するTodoリストアプリケーションです。  
 動作確認用ページ(Render.com): [https://memee-nunp.onrender.com](https://memee-nunp.onrender.com)  
 Render.comの無料枠を使用しているため、起動に数分かかる可能性があります。
 
@@ -10,7 +10,7 @@ Render.comの無料枠を使用しているため、起動に数分かかる可�
 - バックエンドフレームワーク: Laravel 12.x
 - ビルドツール: vite
 - フロントエンド: Blade, tailwindcss v4, Alpine.js, Axios
-- データベース: SQLite 3.51
+- データベース: PostgreSQL 18
 
 ## 動作環境
 動作を確認している環境は以下のとおりです。
@@ -56,7 +56,8 @@ Todoリストの性質上、画面遷移が少ないためJavaScriptを使用し
 スマートフォンからでも使用できるようにデザインしました。  
 
 - 手数の少ない操作感  
-全体的に少ない手数で操作が行えるようにデザインしました。特にタスクの登録の際に必ず日付を選択するため、初めからカレンダーを展開して、手間を減らしました。
+全体的に少ない手数で操作が行えるようにデザインしました。  
+特にタスクの登録の際に必ず日付を選択するため、初めからカレンダーを展開して、手間を減らしました。また、カレンダーには使いやすさを重視してflatpickrというライブラリを使用しました。
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
