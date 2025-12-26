@@ -50,7 +50,7 @@
                             <div class="flex-1 flex border-r justify-center items-center">
                                 <p x-text="(remainDate <= 0) ? Math.abs(remainDate)+'日経過':'あと'+remainDate+'日'" class=""></p>
                             </div>
-                            <div class="flex-1 h-full flex flex-col justify-center ">
+                            <div class="flex-2 h-full flex flex-col justify-center ">
                                 <div class=" h-7 border bg-white shadow-2xl flex justify-center" @click="axios.post('/api/update',{'id':data.id,'newIsFinished':!data.isFinished}).then(function(response){console.log(response); getData(type);});" x-text="data.isFinished ? '完了取消し':'完了'"></div>
                                 <div class=" h-7 border bg-white shadow-2xl flex justify-center" @click="axios.post('/api/delete',{'id':data.id}).then(function(response){console.log(response); getData(type);});" x-text="data.isDeleted ? '完全削除' : '削除'"></div>
                             </div>
